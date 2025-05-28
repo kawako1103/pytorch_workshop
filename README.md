@@ -20,7 +20,7 @@ pytws_rkawaguchi                   v1        36097820484b   51 seconds ago   6.1
 ```
 
 
-## 3. コンテナ起動（作業ディレクトリをマウント）(--gpus allをつけると gpuが使える/ --rmをつけるとdocker stopをした時に自動的にコンテナが削除される/-v　リポジトリを/workspaceにマウント)
+## 3. コンテナ起動（作業ディレクトリをマウント）(6006は適宜変えてください)(--gpus allをつけると gpuが使える/ --rmをつけるとdocker stopをした時に自動的にコンテナが削除される/-v　リポジトリを/workspaceにマウント)
 ```
 docker run --gpus all -it --rm -v $(pwd):/workspace \
 -p 6006:6006 --name pytws_$(whoami) pytws_$(whoami):v1
@@ -64,7 +64,6 @@ Tue May 27 14:52:51 2025
 
 ## 4. 教材を実行
 ```
-root@41038ac225ec:/workspace# python src/train_mnist.py 
 python src/train_mnist.py
 ```
 
@@ -79,7 +78,7 @@ Epoch 2 | loss 0.136 | train_acc 96.1% | val_acc 96.4%
 ## 5. tensorboardで可視化 #ポート経由でブラウザで閲覧(SSH接続でWSを扱っている前提)
 
 ```
-root@41038ac225ec:/workspace# tensorboard --logdir runs --host 0.0.0.0 --port 6006
+tensorboard --logdir runs --host 0.0.0.0 --port 6006
 ```
 
 ### #期待される出力(urlをクリックすると飛んでみれる。。はず。。)
