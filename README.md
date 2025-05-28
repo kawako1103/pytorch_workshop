@@ -3,7 +3,7 @@ This is the repository for new members of ai-lab who have never used Pytorch and
 
 ## 1. リポジトリ取得
 ```
-git clone https://github.com/kawako1103/pytorch_workshop.git
+git clone -b feature/first_base https://github.com/kawako1103/pytorch_workshop.git
 cd pytorch_workshop
 ```
 
