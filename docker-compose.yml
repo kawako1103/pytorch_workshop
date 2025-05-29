@@ -1,0 +1,28 @@
+services:
+  workshop:
+    # 1. 既存 Dockerfile を使ってビルド
+    build: .
+    # 2. 自動でわかりやすいタグを付ける（USER が無い環境は guest）
+    image: pytws_${USER:-guest}:v1
+    container_name: pytws_${USER:-guest}
+
+    # 3. 必要なオプション
+    volumes:
+      - ./:/workspace        # ソースをマウント
+    ports:
+      - "6006:6006"          # TensorBoard
+    tty: true                # /bin/bash を対話で
+    stdin_open: true
+    command: /bin/bash
+
+    # 4. GPU を使う場合（Docker 20.10 / Compose v2 以降）
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # GPU がない参加者でも動かせるようにするなら、
+    # ↑ の deploy セクションを profiles: ["gpu"] にして
+    # GPU 組だけ `docker compose --profile gpu up` で起動、でも可

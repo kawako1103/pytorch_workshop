@@ -7,7 +7,18 @@ git clone -b feature/first_base https://github.com/kawako1103/pytorch_workshop.g
 cd pytorch_workshop
 ```
 
-## 2. Docker イメージを “自分の名前タグ” でビルド(pytwsはpytorch workshopの短縮形のつもり。whoamiはユーザによって自動的に変わるので特に変更せずともわかりやすい。8~9分ほどかかるかと。。)
+#　以下は docker-compose.ymlファイルをつ開く方法：docker buildでやるのが面倒の場合は2-a, ちゃんとやってみたい人は2-bへ　講習会では2-aでやります。
+## 2-a.Docker イメージをdocker composeで “自分の名前タグ” でビルド　&　起動(pytwsはpytorch workshopの短縮形のつもり。whoamiはユーザによって自動的に変わるので特に変更せずともわかりやすい。8~9分ほどかかるかと。。)
+```
+#ビルド&起動(バッググランド)
+docker compose up -d 
+
+#コンテナに入る
+docker compose exec workshop bash
+```
+
+#　以下は docker-compose.ymlファイルを使わない方法(docker buildでやるのが面倒の場合は2-aへ。やってみたい人はこちらの2-bで)
+## 2-b. Docker イメージをdocker buildで “自分の名前タグ” でビルド(pytwsはpytorch workshopの短縮形のつもり。whoamiはユーザによって自動的に変わるので特に変更せずともわかりやすい。8~9分ほどかかるかと。。)
 ```
 docker build -t pytws_$(whoami):v1 .
 ```
@@ -19,7 +30,7 @@ REPOSITORY                         TAG       IMAGE ID       CREATED          SIZ
 pytws_rkawaguchi                   v1        36097820484b   51 seconds ago   6.14GB
 ```
 
-
+# 2-aのdocker composeで起動した場合は3スキップ
 ## 3. コンテナ起動（作業ディレクトリをマウント）(6006は適宜変えてください)(--gpus allをつけると gpuが使える/ --rmをつけるとdocker stopをした時に自動的にコンテナが削除される/-v　リポジトリを/workspaceにマウント)
 ```
 docker run --gpus all -it --rm -v $(pwd):/workspace \
@@ -75,7 +86,7 @@ Epoch 1 | loss 0.188 | train_acc 94.6% | val_acc 95.5%
 Epoch 2 | loss 0.136 | train_acc 96.1% | val_acc 96.4%
 ```
 
-## 5. tensorboardで可視化 #ポート経由でブラウザで閲覧(SSH接続でWSを扱っている前提)
+## 5. tensorboardで可視化(portは先ほどのコンテナ起動時のものを設定してください(下の6006)) #ポート経由でブラウザで閲覧(SSH接続でWSを扱っている前提)
 
 ```
 tensorboard --logdir runs --host 0.0.0.0 --port 6006
