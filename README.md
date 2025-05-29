@@ -144,7 +144,6 @@ docker image rm 567510fe9770
 
 ### docker関連(ailabの人限定)
 [リモートワークで機械学習](https://sites.google.com/g.ecc.u-tokyo.ac.jp/ailab-rcast-2020/%E7%A0%94%E7%A9%B6%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E5%8F%82%E8%80%83%E8%B3%87%E6%96%99/%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%A7%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92)
-https://sites.google.com/g.ecc.u-tokyo.ac.jp/ailab-rcast-2020/%E7%A0%94%E7%A9%B6%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E5%8F%82%E8%80%83%E8%B3%87%E6%96%99/%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%A7%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92
 
 [VSCodeを利用したワークステーションでのDL講座](https://drive.google.com/file/d/1bvb4YwqCEgtwOJi16R4lK2WclpONc0Hy/view)
 
