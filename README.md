@@ -7,7 +7,7 @@ git clone -b feature/first_base https://github.com/kawako1103/pytorch_workshop.g
 cd pytorch_workshop
 ```
 
-#  以下は docker-compose.ymlファイルを使う方法：docker buildでやるのが面倒の場合は2-a, ちゃんとやってみたい人は2-bへ　講習会では2-aでやります。
+#  以下は docker-compose.yml(portを適宜6006から変えてみてください)ファイルを使う方法：docker buildでやるのが面倒の場合は2-a, ちゃんとやってみたい人は2-bへ　講習会では2-aでやります。
 ## 2-a.Docker イメージをdocker composeで “自分の名前タグ” でビルド　&　起動(pytwsはpytorch workshopの短縮形のつもり。whoamiはユーザによって自動的に変わるので特に変更せずともわかりやすい。8~9分ほどかかるかと。。)
 ```
 #ビルド&起動(バッググランド)
